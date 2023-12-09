@@ -21,7 +21,7 @@ class GameServerLogic:
 
     def create_game_board(self):
         # Luodaan pelilauta
-        kirjaimet = "abcdefghijklmnopqrstuvwxyzäö"
+        kirjaimet = "abdeghijklmnoqrstuvyäö"
         matriisi = [''.join(random.choice(kirjaimet) for _ in range(13)) for _ in range(10)]
         return '\n'.join(matriisi)
 

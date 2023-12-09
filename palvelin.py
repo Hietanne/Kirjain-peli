@@ -13,6 +13,10 @@ class GameServer:
         self.clients = []
         print(f"Server is listening on {self.host}:{port}")
 
+        # Kirjoita IP-osoite tiedostoon
+        with open("server_ip.txt", "w") as file:
+            file.write(self.host)
+
     def get_local_ip(self):
         # Luodaan väliaikainen socket yhteys saadakseen LAN IP-osoite
         try:
