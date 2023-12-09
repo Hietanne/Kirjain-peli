@@ -15,13 +15,16 @@ def fetch_game_board(server_ip, server_port):
 def main():
     root = tk.Tk()
     root.title("Game Screen")
+    root.geometry("600x600")  # Asetetaan ikkunan koko
 
-    server_ip = "127.0.0.1"  # Oletetaan, että palvelin on paikallisessa koneessa
-    server_port = 12346  # Oletetaan, että pelipalvelin käyttää porttia 12346
-
+    # Lue IP-osoite tiedostosta
+    with open("server_ip.txt", "r") as file:
+        server_ip = file.read().strip()
+    server_port = 12346
+    
     game_board = fetch_game_board(server_ip, server_port)
     if game_board:
-        tk.Label(root, text=game_board).pack()
+        tk.Label(root, text=game_board, font=("Helvetica", 12)).pack()
 
     root.mainloop()
 

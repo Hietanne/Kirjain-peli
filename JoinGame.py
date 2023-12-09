@@ -21,7 +21,10 @@ class GameClient:
     def join_game(self):
         server_ip = self.entry_ip.get()
         server_port = 12345  # Oletetaan, että portti on aina 12345
-        self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+        # Tallenna IP-osoite tiedostoon
+        with open("server_ip.txt", "w") as file:
+            file.write(server_ip)
 
         try:
             self.client_socket.connect((server_ip, server_port))
