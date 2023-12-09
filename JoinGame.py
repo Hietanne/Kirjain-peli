@@ -15,6 +15,9 @@ class GameClient:
         self.btn_join = tk.Button(self.root, text="Join Game", command=self.join_game)
         self.btn_join.pack()
 
+        # Alustetaan client_socket muuttuja
+        self.client_socket = None
+
         # Käynnistä GUI:n tapahtumasilmukka
         self.root.mainloop()
 
@@ -26,7 +29,9 @@ class GameClient:
         with open("server_ip.txt", "w") as file:
             file.write(server_ip)
 
+        # Yritä muodostaa yhteys
         try:
+            self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             self.client_socket.connect((server_ip, server_port))
             print(f"Connected to server at {server_ip}:{server_port}")
             self.root.destroy()  # Sulkee nykyisen ikkunan
