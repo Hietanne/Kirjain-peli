@@ -16,7 +16,7 @@ root = tk.Tk()
 root.title("LAN Lettergrid Game")
 
 # Set window resolution to 800x800
-root.geometry("800x800")
+root.geometry("400x400")
 
 # Create and place buttons
 btn_create_server = tk.Button(root, text="Create Server", command=start_server)
